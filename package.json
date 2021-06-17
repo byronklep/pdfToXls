@@ -1,17 +1,36 @@
 {
   "name": "pfdtoxls",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "MERN app that takes a PDF upload, strips the data and creates an XLS file.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "fs": "^0.0.1-security",
+    "json2xls": "^0.1.2",
+    "multer": "^1.4.2",
+    "pdf-to-excel": "^0.3.2",
     "pdf2table": "^0.0.2",
     "pdfjs-dist": "^2.4.456",
-    "pdfreader": "^1.2.10"
+    "pdfreader": "^1.2.10",
+    "xlsx": "^0.17.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
   }
 }

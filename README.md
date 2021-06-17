@@ -1,3 +1,3 @@
 # pdfToXls
 
-Node application that takes data from a pdf file and outputs an xls file.
+MERN app that takes a PDF upload, strips the data and creates an XLS file.
